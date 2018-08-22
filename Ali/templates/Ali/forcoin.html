@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Coinba$e</title>
+    <style>
+    table, th, td {
+        border: 3px solid #000000;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+<fieldset>
+<legend>Coinba$e</legend>
+User Name is {{ user }}
+<br>
+<br>
+User ID is {{ useremail }}
+<br>
+<br>
+Code is {{ code }}
+<br>
+<br>
+Access Token is {{ access }}
+<br>
+<br>
+Refresh Token is {{ refresh }}
+<br>
+<br>
+Current Price is {{ price }}
+<br>
+<br>
+</fieldset>
+
+<table style="width:100%">
+<caption>About Coinba$e</caption>
+<br>
+<br>
+    <tr>
+        <th>Historic Prices</th>
+        <th>Historic Time</th>
+    </tr>
+
+    {% for i,j in coinpt %}
+
+    <tr>
+        <td>{{ i }}</td>
+        <td>{{ j }}</td>
+    </tr>
+    {% endfor %}
+
+{#Historic Prices are {{ coinprice }}#}
+{#<br>#}
+{#<br>#}
+{#Historic Time is {{ time }}#}
+</body>
+</html>

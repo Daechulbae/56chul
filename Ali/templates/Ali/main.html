@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ali</title>
+    <script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+
+        m = checkTime(m);
+        s = checkTime(s);
+
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 1);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+    </script>
+</head>
+
+<header>
+    <h1>" I feel like <strong> Muhammad Ali ! "</strong></h1>
+    {% load static %} <!--to load image file from static Directory-->
+    <p>
+    <img src="{% static 'ali.png' %}" style="width:200px;height:200px;" alt="Come on">
+    </p>
+</header>
+
+<body onload="startTime()">
+
+Current time is <div id="txt"></div>
+
+<p>
+<a href="https://www.coinbase.com/oauth/authorize?response_type=code&client_id=77d5af4941ffd6d5f0c9149e2e303a1c28d9f44c09b63694d6f2f608c60947c0&redirect_uri=http://127.0.0.1:8000/Ali/forcoin/&state=SECURE_RANDOM&scope=wallet:accounts:read+wallet:user:email"><input type="button" value="Coinba$e"></a>
+</p>
+    <form name= "form" action = "{% url 'Ali:actionaf' %}"
+    method = "POST" >{% csrf_token %}
+      <fieldset>
+        <legend>What do you want to do?</legend>
+        Right or Left Punch?:<br>
+        <br>
+        <input type="radio" name="texbox" value="Right">Right <br>
+        <input type="radio" name="texbox" value="Left">Left <br>
+        <input type="radio" name="texbox" value="Just kidding, ">Nothing <br>
+        <br>
+        <input type="submit" value="Submit" required>
+      </fieldset>
+    </form>
+    <h5>If you're interested in Muhammad Ali,</h5>
+
+    <input type="button" onclick="alert('Just Search on Google! :)')" value="Click here!">
+
+</body>
+</html>
