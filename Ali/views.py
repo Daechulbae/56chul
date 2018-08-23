@@ -31,13 +31,17 @@ def forcoin(request):
     refresh = a.refresh()['refresh_token']
 
     price = []
+    price2 = []
     time = []
+    dif1 = []
 
-    for i in range(0,20):
-        price.append(c[i]['price'])
+    for i in range(1,21):
+        price.append(float(c[i]['price']))
+        price2.append(float(c[i-1]['price']))
+        dif1.append(round(price[i-1]-price2[i-1],2))
         time.append(c[i]['time'])
 
-    coinpt = zip(price, time)
+    coinpt = zip(price, dif1, time)
 
     context = {
         'code':code,

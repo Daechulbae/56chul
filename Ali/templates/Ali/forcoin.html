@@ -44,14 +44,16 @@ Current Price is {{ price }}
 <br>
     <tr>
         <th>Historic Prices</th>
+        <th>Differences between Historic Prices</th>
         <th>Historic Time</th>
     </tr>
 
-    {% for i,j in coinpt %}
+    {% for i,j,k in coinpt %}
 
     <tr>
         <td>{{ i }}</td>
         <td>{{ j }}</td>
+        <td>{{ k }}</td>
     </tr>
     {% endfor %}
 
